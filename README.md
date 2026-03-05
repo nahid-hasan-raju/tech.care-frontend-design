@@ -1,6 +1,6 @@
 # Tech.Care — Patient Dashboard
 
-A frontend skills test submission for Coalition Technologies. Converts an Adobe XD design mockup into a fully functional patient dashboard that pulls live data from the Coalition Technologies Patient Data API.
+It converts an Adobe XD design mockup into a fully functional patient dashboard that pulls live data from the Coalition Technologies Patient Data API.
 
 ![Dashboard Preview](https://fedskillstest.ct.digital/4.png)
 
