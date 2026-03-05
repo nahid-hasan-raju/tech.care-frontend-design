@@ -1,0 +1,702 @@
+/* =========================================
+   Tech.Care — Main Styles
+   ========================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Manrope', sans-serif;
+  background-color: #F6F7FA;
+  color: #072635;
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+  background: #fff;
+  height: 72px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 0 0 60px 60px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #072635;
+  font-size: 1.2rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+}
+
+/* center nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #072635;
+  font-weight: 600;
+  font-size: .875rem;
+  transition: background 0.2s ease;
+}
+
+.nav-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.nav-item:hover {
+  background: #f2f4f7;
+}
+
+.nav-item.active {
+  background: #01F0D0;
+}
+
+/* right side of nav */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doctor-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doctor-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.doctor-name {
+  font-weight: 700;
+  font-size: .875rem;
+}
+
+.doctor-title {
+  font-size: .75rem;
+  color: #707070;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 38px;
+  background: #EDEDED;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #707070;
+}
+
+.nav-icons svg {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.nav-icons svg:hover {
+  color: #072635;
+}
+
+
+/* =========================================
+   PAGE LAYOUT
+   ========================================= */
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr 320px;
+  gap: 24px;
+  padding: 28px 28px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* shared panel style */
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.panel-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+
+/* =========================================
+   LEFT SIDEBAR — PATIENT LIST
+   ========================================= */
+
+.sidebar {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 20px 12px;
+  /* let it scroll if list is long */
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.sidebar-top h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  color: #072635;
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* skeleton loading rows */
+.skeleton-row {
+  height: 60px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* actual patient row */
+.patient-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.patient-row:hover {
+  background: #f5f5f5;
+}
+
+.patient-row.active {
+  background: #D8FCF7;
+}
+
+.patient-row img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.patient-row .info {
+  flex: 1;
+  min-width: 0;
+}
+
+.patient-row .info .name {
+  font-weight: 700;
+  font-size: .875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-row .info .meta {
+  font-size: .75rem;
+  color: #707070;
+  margin-top: 1px;
+}
+
+.patient-row .more {
+  color: #aaa;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   BLOOD PRESSURE SECTION
+   ========================================= */
+
+.bp-wrapper {
+  background: #F4F0FE;
+  border-radius: 14px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 155px;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bp-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.bp-chart-header h3 {
+  font-size: .95rem;
+  font-weight: 800;
+}
+
+.period-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #072635;
+  padding: 0;
+}
+
+.chart-container {
+  position: relative;
+  height: 210px;
+}
+
+/* right side stats */
+.bp-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bp-stat-block {
+  /* just a normal block */
+}
+
+.bp-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.bp-number {
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.bp-level {
+  font-size: .76rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bp-level svg {
+  width: 12px;
+  height: 12px;
+}
+
+.stat-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 4px 0;
+}
+
+
+/* =========================================
+   VITALS ROW
+   ========================================= */
+
+.vitals-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.vital-card {
+  border-radius: 14px;
+  padding: 20px 20px 24px;
+}
+
+.vital-card.blue {
+  background: #E0F3FA;
+}
+
+.vital-card.pink {
+  background: #FFE6F1;
+}
+
+.vital-card img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 14px;
+  object-fit: contain;
+}
+
+.vital-name {
+  font-size: .82rem;
+  font-weight: 500;
+  color: #072635;
+  margin-bottom: 6px;
+}
+
+.vital-value {
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.vital-value small {
+  font-size: .85rem;
+  font-weight: 500;
+}
+
+.vital-status {
+  font-size: .78rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vital-status svg {
+  width: 11px;
+  height: 11px;
+}
+
+
+/* =========================================
+   DIAGNOSTIC LIST TABLE
+   ========================================= */
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.diag-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.diag-table thead tr {
+  background: #F6F7FA;
+  border-radius: 8px;
+}
+
+.diag-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #072635;
+  white-space: nowrap;
+}
+
+.diag-table td {
+  padding: 14px 16px;
+  font-size: .85rem;
+  border-bottom: 1px solid #F6F7FA;
+  color: #072635;
+}
+
+.diag-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.diag-table tbody tr:hover td {
+  background: #fafafa;
+}
+
+.table-loading {
+  text-align: center;
+  color: #aaa;
+  padding: 32px !important;
+}
+
+/* status badges */
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: .76rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-observation {
+  background: #FFF3CD;
+  color: #856404;
+}
+
+.badge-cured {
+  background: #D4EDDA;
+  color: #155724;
+}
+
+.badge-inactive {
+  background: #EFEFEF;
+  color: #666;
+}
+
+
+/* =========================================
+   RIGHT SIDEBAR — PROFILE
+   ========================================= */
+
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.patient-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+}
+
+.patient-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.info-list {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F6F7FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-icon svg {
+  width: 19px;
+  height: 19px;
+  color: #072635;
+}
+
+.info-text .label {
+  font-size: .74rem;
+  color: #707070;
+  margin-bottom: 2px;
+}
+
+.info-text .value {
+  font-size: .875rem;
+  font-weight: 700;
+}
+
+.btn-show-all {
+  display: block;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: 50px;
+  background: #01F0D0;
+  border: none;
+  font-size: .875rem;
+  font-weight: 700;
+  color: #072635;
+  transition: opacity 0.2s;
+}
+
+.btn-show-all:hover {
+  opacity: 0.85;
+}
+
+
+/* =========================================
+   LAB RESULTS
+   ========================================= */
+
+.lab-results {
+  /* inherits .panel */
+}
+
+.lab-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 4px;
+  border-bottom: 1px solid #F6F7FA;
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.lab-list li:last-child {
+  border-bottom: none;
+}
+
+.lab-download {
+  color: #072635;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.lab-download svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+
+/* =========================================
+   RESPONSIVE — basic breakpoints
+   ========================================= */
+
+@media (max-width: 1150px) {
+  .app-layout {
+    grid-template-columns: 270px 1fr;
+  }
+  .profile-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .navbar {
+    border-radius: 0;
+    padding: 0 16px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .app-layout {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .sidebar {
+    display: none;
+  }
+  .vitals-row {
+    grid-template-columns: 1fr;
+  }
+  .bp-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

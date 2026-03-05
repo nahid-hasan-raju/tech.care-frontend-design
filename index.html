@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech.Care</title>
+
+  <!-- Chart.js for blood pressure graph -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== TOP NAVIGATION ===== -->
+  <header class="navbar">
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3L5 11.5V28.5L20 37L35 28.5V11.5L20 3Z" fill="#01F0D0" opacity=".25"/>
+        <path d="M20 3L5 11.5V22L20 30.5L35 22V11.5L20 3Z" fill="#01F0D0"/>
+        <path d="M14 19H26M20 13V25" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span>Tech.Care</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/>
+        </svg>
+        Overview
+      </a>
+      <a href="#" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/>
+        </svg>
+        Patients
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        Schedule
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+        </svg>
+        Message
+      </a>
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2"/>
+          <line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Transactions
+      </a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="doctor-info">
+        <img
+          src="https://fedskillstest.ct.digital/dr-simmons.png"
+          alt="Dr. Jose Simmons"
+          class="doctor-avatar"
+          onerror="this.src='https://ui-avatars.com/api/?name=Jose+Simmons&background=072635&color=fff&size=80'"
+        />
+        <div class="doctor-text">
+          <span class="doctor-name">Dr. Jose Simmons</span>
+          <span class="doctor-title">General Practitioner</span>
+        </div>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-icons">
+        <!-- gear icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+        </svg>
+        <!-- three dots -->
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <circle cx="12" cy="5" r="1.5"/>
+          <circle cx="12" cy="12" r="1.5"/>
+          <circle cx="12" cy="19" r="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ===== MAIN LAYOUT ===== -->
+  <div class="app-layout">
+
+    <!-- Left: patient list -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <h2>Patients</h2>
+        <button class="icon-btn" aria-label="Search patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </div>
+      <ul class="patient-list" id="patientList">
+        <li class="skeleton-row"></li>
+        <li class="skeleton-row"></li>
+        <li class="skeleton-row"></li>
+        <li class="skeleton-row"></li>
+        <li class="skeleton-row"></li>
+      </ul>
+    </aside>
+
+
+    <!-- Center: diagnosis content -->
+    <main class="content">
+
+      <!-- Blood pressure + vitals section -->
+      <section class="panel">
+        <h2 class="panel-title">Diagnosis History</h2>
+
+        <div class="bp-wrapper">
+          <div class="bp-chart-area">
+            <div class="bp-chart-header">
+              <h3>Blood Pressure</h3>
+              <button class="period-btn">
+                Last 6 months
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+            <div class="chart-container">
+              <canvas id="bpChart"></canvas>
+            </div>
+          </div>
+
+          <div class="bp-stats">
+            <div class="bp-stat-block">
+              <p class="bp-label">
+                <span class="dot" style="background: #E066A0;"></span>
+                Systolic
+              </p>
+              <h3 class="bp-number" id="sysValue">--</h3>
+              <p class="bp-level" id="sysLevel">--</p>
+            </div>
+
+            <hr class="stat-divider" />
+
+            <div class="bp-stat-block">
+              <p class="bp-label">
+                <span class="dot" style="background: #8C6FE6;"></span>
+                Diastolic
+              </p>
+              <h3 class="bp-number" id="diaValue">--</h3>
+              <p class="bp-level" id="diaLevel">--</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vitals row -->
+        <div class="vitals-row">
+          <div class="vital-card blue">
+            <img src="https://fedskillstest.ct.digital/respiratory_rate.png" alt="lungs icon" onerror="this.style.display='none'" />
+            <p class="vital-name">Respiratory Rate</p>
+            <h3 class="vital-value"><span id="respVal">--</span> <small>bpm</small></h3>
+            <p class="vital-status" id="respStatus">--</p>
+          </div>
+          <div class="vital-card pink">
+            <img src="https://fedskillstest.ct.digital/temperature.png" alt="thermometer icon" onerror="this.style.display='none'" />
+            <p class="vital-name">Temperature</p>
+            <h3 class="vital-value"><span id="tempVal">--</span><small>°F</small></h3>
+            <p class="vital-status" id="tempStatus">--</p>
+          </div>
+          <div class="vital-card pink">
+            <img src="https://fedskillstest.ct.digital/heart_rate.png" alt="heart icon" onerror="this.style.display='none'" />
+            <p class="vital-name">Heart Rate</p>
+            <h3 class="vital-value"><span id="heartVal">--</span> <small>bpm</small></h3>
+            <p class="vital-status" id="heartStatus">--</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Diagnostic list table -->
+      <section class="panel">
+        <h2 class="panel-title">Diagnostic List</h2>
+        <div class="table-wrap">
+          <table class="diag-table">
+            <thead>
+              <tr>
+                <th>Problem / Diagnosis</th>
+                <th>Description</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="diagTableBody">
+              <tr><td colspan="3" class="table-loading">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- Right: patient profile -->
+    <aside class="profile-sidebar">
+
+      <div class="panel profile-card">
+        <img
+          id="patientPhoto"
+          src=""
+          alt="Patient photo"
+          class="patient-photo"
+          onerror="this.src='https://ui-avatars.com/api/?name=Jessica+Taylor&background=D8FCF7&color=072635&size=200'"
+        />
+        <h2 class="patient-name" id="patientName">--</h2>
+
+        <ul class="info-list" id="infoList">
+          <!-- filled by JS -->
+        </ul>
+
+        <button class="btn-show-all">Show All Information</button>
+      </div>
+
+      <div class="panel lab-results">
+        <h2 class="panel-title">Lab Results</h2>
+        <ul class="lab-list" id="labList">
+          <!-- filled by JS -->
+        </ul>
+      </div>
+
+    </aside>
+
+  </div><!-- end app-layout -->
+
+
+  <script src="js/api.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
